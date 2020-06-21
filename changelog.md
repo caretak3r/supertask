@@ -72,3 +72,5 @@ _what is on the other side of eternity?_
 
 >datetime: Sun Jun 21 20:56:54 UTC 2020 | task_num: 35 | entropy_: 
 
+>datetime: Sun Jun 21 21:08:50 UTC 2020 | task_num: 36 | entropy_: 
+
