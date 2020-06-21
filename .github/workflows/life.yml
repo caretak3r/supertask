@@ -1,0 +1,39 @@
+name: ad_infinitum
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+    steps:
+    - 
+      name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - 
+      name: Setup
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - 
+      name: Install
+      run: |
+        python -m pip install commit-entropy
+    -
+      name: Create
+      run: |
+        echo ">datetime: $(date) | task_num: $(git rev-list HEAD --count) | entropy_: $(commit-entropy csv | awk -F',' 'NR == 2 { print $2 }' *.csv && rm *.csv)" >> changelog.md
+        echo "" >> changelog.md
+        git config --local user.email 50377477+caretak3r@users.noreply.github.com
+        git config --local user.name 'caretak3r[supertask-bot]'
+        git add changelog.md
+        git commit -m "task: life←{↑1 ω∨.∧3 4=+/,¯1 0 1∘.⊖¯1 0 1∘.⌽⊂ω}"
+    - 
+      name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
