@@ -414,3 +414,5 @@ _what is on the other side of eternity?_
 
 >datetime: Mon Jun 22 19:33:29 UTC 2020 | task_num: 206 | entropy_: 
 
+>datetime: Mon Jun 22 19:40:54 UTC 2020 | task_num: 207 | entropy_: 
+
