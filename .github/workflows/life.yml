@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.8]
     steps:
     - 
       name: Checkout
@@ -26,10 +26,10 @@ jobs:
     -
       name: Create
       run: |
-        echo ">datetime: $(date) | task_num: $(git rev-list HEAD --count) | entropy_: $(commit-entropy csv | awk -F',' 'NR == 2 { print $2 }' *.csv && rm *.csv)" >> changelog.md
+        echo ">datetime: $(date) | task_num: $(git rev-list HEAD --count) | entropy_: $(commit-entropy csv | awk -F',' 'NR == 2 { print $2 }' *.csv)" >> changelog.md
         echo "" >> changelog.md
-        git config --local user.email 50377477+caretak3r@users.noreply.github.com
-        git config --local user.name 'caretak3r[supertask-bot]'
+        git config --global user.email 50377477+supertask-bot+caretak3r@users.noreply.github.com
+        git config --global user.name 'caretak3r[supertask-bot]'
         git add changelog.md
         git commit -m "task: life←{↑1 ω∨.∧3 4=+/,¯1 0 1∘.⊖¯1 0 1∘.⌽⊂ω}"
     - 
